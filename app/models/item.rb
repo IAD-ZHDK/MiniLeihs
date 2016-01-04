@@ -1,6 +1,7 @@
 class Item
   include Mongoid::Document
   include Mongoid::Timestamps
+  include GlobalID::Identification
 
   field :description, type: String
   field :borrower_email, type: String
