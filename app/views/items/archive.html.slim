@@ -1,0 +1,14 @@
+h2 Borrow Archive
+
+table
+  tr
+    th Description
+    th Borrower Email
+    th Borrowed At
+    th Returned At
+  - @items.each do |item|
+    tr
+      td = item.description
+      td = item.borrower_email
+      td = item.created_at
+      td = item.returned_at
