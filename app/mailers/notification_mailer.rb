@@ -1,7 +1,7 @@
 class NotificationMailer < ActionMailer::Base
   default from: ENV['MAIL_SENDER']
 
-  def email(item)
+  def notification_email(item)
     @item = item
     @shop = ENV['SHOP_NAME']
 
