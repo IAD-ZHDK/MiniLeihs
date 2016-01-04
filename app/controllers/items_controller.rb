@@ -31,7 +31,7 @@ class ItemsController < ApplicationController
     check_admin
     @item = Item.find(params[:id])
 
-    NotificationMailer.email(@item).deliver_now!
+    NotificationMailer.email(@item).deliver_later!
 
     if @item.update(last_notification_at: Time.now)
       redirect_to items_path, notice: 'Successfully sent notification email!'
