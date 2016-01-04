@@ -10,6 +10,10 @@ APP_HOST
 AUTH_USERNAME
 AUTH_PASSWORD
 MAIL_SENDER
-SMTP_USERNAME
-SMTP_PASSWORD
 ```
+
+## Addons
+
+- MongoLab
+- Heroku Redis
+- Postmark
