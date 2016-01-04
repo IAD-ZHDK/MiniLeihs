@@ -4,3 +4,8 @@ development:
       database: minileihs_dev
       hosts:
         - localhost:27017
+
+production:
+  clients:
+    default:
+      uri: <%= ENV['MONGOLAB_URI'] %>
