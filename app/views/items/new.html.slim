@@ -1,7 +1,7 @@
-h2 Borrow Item
+h2 Borrow
 
 = semantic_form_for @item do |f|
   ul
-    = f.input :description, hint: 'Short description about the piece beeing borrowed.'
+    = f.input :description, hint: 'Short description about the item.'
     = f.input :borrower_email, label: 'Borrower Email', hint: 'The borrowers @zhdk email address.'
     = f.action :submit, label: 'Borrow'
