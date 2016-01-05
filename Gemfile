@@ -18,6 +18,7 @@ gem 'mongoid', '~> 5.0.0'
 
 gem 'sinatra', :require => nil
 gem 'sidekiq', '~> 4.0.0'
+gem 'sidekiq-cron'
 
 gem 'slim'
 gem 'formtastic'
