@@ -5,5 +5,6 @@ class ApplicationController < ActionController::Base
 
   def check_admin
     redirect_to :root, notice: 'Please login first!' unless admin?
+    admin?
   end
 end
