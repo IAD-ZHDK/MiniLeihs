@@ -1,9 +1,11 @@
-You borrowed the following item from the <%= @shop %> some time ago:
+You borrowed the following items from the <%= @shop %> some time ago:
 
-- <%= @item.description %>
+<% @items.each do |item| %>
+- <%= item.description %>
+<% end %>
 
-If you do not need the item anymore we would be happy to have it back soon.
-Otherwise send us a short message why you need to keep the item longer.
+If you do not need the items anymore we would be happy to have them back soon.
+Otherwise send us a short message why you need to keep the items longer.
 
 Best,
 <%= @shop %> Team

@@ -30,14 +30,14 @@ class ItemsController < ApplicationController
   def notify
     check_admin
     @item = Item.find(params[:id])
+    NotifyWorker.perform_async(@item.borrower_email)
+    redirect_to items_path, notice: 'Notification started!'
+  end
 
-    NotificationMailer.notification_email(@item).deliver_later!
-
-    if @item.update(last_notification_at: Time.now)
-      redirect_to items_path, notice: 'Successfully sent notification email!'
-    else
-      redirect_to items_path, notice: 'There was an error while sendinf the notification email!'
-    end
+  def bulk_notify
+    check_admin
+    BulkNotifyWorker.perform_async
+    redirect_to items_path, notice: 'Bulk notification started!'
   end
 
   def archive

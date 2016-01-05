@@ -14,13 +14,14 @@ Rails.application.routes.draw do
   get 'logout' => 'root#logout'
 
   resources :items, only: [:index, :new, :create] do
+    collection do
+      get :archive
+      post :bulk_notify
+    end
+
     member do
       post :return
       post :notify
-    end
-
-    collection do
-      get :archive
     end
   end
 end
