@@ -9,4 +9,7 @@ class Item
   field :last_notification_at, type: Time
 
   validates_presence_of :description, :borrower_email
+
+  scope :borrowed, -> { where(returned_at: nil) }
+  scope :returned, -> { where(:returned_at.exists => true) }
 end

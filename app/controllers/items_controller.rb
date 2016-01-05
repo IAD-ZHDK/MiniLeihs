@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.where(returned_at: nil).order_by(created_at: :desc).all
+    @items = Item.borrowed.order_by(created_at: :desc).all
   end
 
   def new
@@ -42,7 +42,7 @@ class ItemsController < ApplicationController
 
   def archive
     check_admin
-    @items = Item.where(:returned_at.exists => true).order_by(created_at: :desc).all
+    @items = Item.returned.order_by(created_at: :desc).all
   end
 
   protected
