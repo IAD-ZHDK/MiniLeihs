@@ -4,10 +4,12 @@ class ItemsController < ApplicationController
   end
 
   def new
+    check_admin
     @item = Item.new
   end
 
   def create
+    check_admin
     @item = Item.create(permitted_params[:item])
     if @item.save
       redirect_to items_path, notice: 'Successfully borrowed item!'
