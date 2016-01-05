@@ -5,6 +5,6 @@ class NotificationMailer < ActionMailer::Base
     @item = item
     @shop = ENV['SHOP_NAME']
 
-    mail to: @item.borrower_email, subject: "#{@shop}: Borrowed item"
+    mail to: @item.borrower_email, cc: ENV['MAIL_SENDER'], subject: "#{@shop}: Borrowed item"
   end
 end
