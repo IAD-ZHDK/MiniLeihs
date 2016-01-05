@@ -10,11 +10,13 @@ APP_HOST
 AUTH_USERNAME
 AUTH_PASSWORD
 MAIL_SENDER
+FIRST_NOTIFICATION
 NOTIFY_INTERVAL
 ```
 
-## Addons
+## Stack
 
+- Heroku
 - MongoLab
 - Heroku Redis
 - Postmark
