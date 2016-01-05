@@ -2,8 +2,14 @@ class NotifyWorker
   include Sidekiq::Worker
 
   def perform(email)
+    i = ENV['NOTIFY_INTERVAL'].to_i.days.to_i
+
     items = Item.borrowed.where(borrower_email: email).all.to_a.select do |item|
-      (Time.now - (item.last_notification_at || 0)).to_i > ENV['NOTIFY_INTERVAL'].to_i.days.to_i
+      if item.last_notification_at.nil?
+        (Time.now - item.created_at).to_i > i
+      else
+        (Time.now - item.last_notification_at).to_i > i
+      end
     end
 
     if items.size > 0
