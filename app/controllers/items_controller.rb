@@ -50,6 +50,6 @@ class ItemsController < ApplicationController
   protected
 
   def permitted_params
-    params.permit(item: [:description, :borrower_email])
+    params.permit(item: [:description, :borrower_email, :agreed_to_terms])
   end
 end
