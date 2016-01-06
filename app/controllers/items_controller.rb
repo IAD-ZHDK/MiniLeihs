@@ -4,12 +4,12 @@ class ItemsController < ApplicationController
   end
 
   def new
-    return unless check_admin
+    return unless check_user('terminal', 'admin')
     @item = Item.new
   end
 
   def create
-    return unless check_admin
+    return unless check_user('terminal', 'admin')
     @item = Item.create(permitted_params[:item])
     if @item.save
       redirect_to items_path, notice: 'Successfully borrowed item!'
@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
   end
 
   def return
-    return unless check_admin
+    return unless check_user('admin')
     @item = Item.find(params[:id])
 
     if @item.update(returned_at: Time.now)
@@ -30,20 +30,20 @@ class ItemsController < ApplicationController
   end
 
   def notify
-    return unless check_admin
+    return unless check_user('admin')
     @item = Item.find(params[:id])
     NotifyWorker.perform_async(@item.borrower_email)
     redirect_to items_path, notice: 'Notification started!'
   end
 
   def bulk_notify
-    return unless check_admin
+    return unless check_user('admin')
     BulkNotifyWorker.perform_async
     redirect_to items_path, notice: 'Bulk notification started!'
   end
 
   def archive
-    return unless check_admin
+    return unless check_user('admin')
     @items = Item.returned.order_by(created_at: :desc).all
   end
 

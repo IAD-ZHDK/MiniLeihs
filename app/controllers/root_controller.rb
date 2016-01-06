@@ -4,16 +4,19 @@ class RootController < ApplicationController
   end
 
   def authenticate
-    if params[:login][:username] == ENV['AUTH_USERNAME'] && params[:login][:password] == ENV['AUTH_PASSWORD']
-      session[:logged_in] = true
-      flash[:notice] = 'Successfully logged in!'
+    if params[:login][:password] == ENV['PASSWORD_ADMIN']
+      session[:user] = 'admin'
+      flash[:notice] = 'Successfully logged in as admin!'
+    elsif params[:login][:password] == ENV['PASSWORD_TERMINAL']
+      session[:user] = 'terminal'
+      flash[:notice] = 'Successfully logged in as terminal!'
     end
 
     redirect_to :root
   end
 
   def logout
-    session[:logged_in] = false
+    session[:user] = 'none'
     redirect_to :root, notice: 'Successfully logged out!'
   end
 end

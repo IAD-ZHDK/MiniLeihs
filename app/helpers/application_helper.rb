@@ -1,5 +1,9 @@
 module ApplicationHelper
   def admin?
-    !!session[:logged_in]
+    session[:user] == 'admin'
+  end
+
+  def terminal?
+    session[:user] == 'terminal'
   end
 end
