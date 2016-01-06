@@ -4,6 +4,7 @@ html
     title = "#{ENV['SHOP_NAME']} - MiniLeihs"
     meta name="mobile-web-app-capable" content="yes"
     meta name="apple-mobile-web-app-capable" content="yes"
+    = favicon_link_tag 'logo.png', rel: 'apple-touch-icon', type: 'image/png'
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
