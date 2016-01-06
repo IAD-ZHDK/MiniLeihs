@@ -1,8 +1,4 @@
 class RootController < ApplicationController
-  def index
-    redirect_to items_path
-  end
-
   def authenticate
     if params[:login][:password] == ENV['PASSWORD_ADMIN']
       session[:user] = 'admin'

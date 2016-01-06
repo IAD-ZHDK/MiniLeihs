@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   mount Sidekiq::Web => '/sidekiq'
 
-  root 'root#index'
+  root 'items#index'
 
   get 'login' => 'root#login'
   post 'authenticate' => 'root#authenticate'
