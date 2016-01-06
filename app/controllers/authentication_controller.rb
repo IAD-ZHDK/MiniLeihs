@@ -1,4 +1,4 @@
-class RootController < ApplicationController
+class AuthenticationController < ApplicationController
   def authenticate
     if params[:login][:password] == ENV['PASSWORD_ADMIN']
       session[:user] = 'admin'

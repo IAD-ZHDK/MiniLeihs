@@ -10,9 +10,9 @@ Rails.application.routes.draw do
 
   root 'items#index'
 
-  get 'login' => 'root#login'
-  post 'authenticate' => 'root#authenticate'
-  get 'logout' => 'root#logout'
+  get 'login' => 'authentication#login'
+  post 'authenticate' => 'authentication#authenticate'
+  get 'logout' => 'authentication#logout'
 
   resources :items, only: [:index, :new, :create] do
     collection do
