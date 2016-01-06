@@ -4,4 +4,5 @@ h2 Borrow
   ul
     = f.input :description, hint: 'Short description about the item.'
     = f.input :borrower_email, label: 'Email', hint: 'The borrowers @zhdk email address.'
+    = f.input :agreed_to_terms, as: :boolean, label: 'Agreed to Borrowing Terms', hint: 'You are fully responsible for the borrowed items and have to return them in the same condition as you have received them. The borrower (identified by the email address) is also responsible if the item is lost or damaged by a third party. We keep the right to demand fees for repairing or replacing the item in such circumstances.'
     = f.action :submit, label: 'Borrow'
