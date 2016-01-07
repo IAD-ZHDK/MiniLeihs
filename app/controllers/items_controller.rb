@@ -20,13 +20,8 @@ class ItemsController < ApplicationController
 
   def return
     return unless check_user('admin')
-    @item = Item.find(params[:id])
-
-    if @item.update(returned_at: Time.now)
-      redirect_to items_path, notice: 'Item successfully returned!'
-    else
-      redirect_to items_path, notice: 'There was an error while returning the item!'
-    end
+    Item.find(params[:id]).update!(returned_at: Time.now)
+    redirect_to items_path, notice: 'Item successfully returned!'
   end
 
   def notify
