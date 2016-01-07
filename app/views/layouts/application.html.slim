@@ -14,13 +14,13 @@ html
       ul
         li = link_to 'List', items_path
         - if admin? || terminal?
-          li = link_to 'Logout', logout_path
           li = link_to 'Borrow', new_item_path
         - else
           li = link_to 'Login', login_path
         - if admin?
           li = link_to 'Archive', archive_items_path
           li = link_to 'Bulk Notify', bulk_notify_items_path, method: :post
+          li = link_to 'Logout', logout_path
     - if flash[:notice]
       .notice = flash[:notice]
     = yield
