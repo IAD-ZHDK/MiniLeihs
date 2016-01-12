@@ -17,7 +17,6 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :new, :create] do
     collection do
       get :archive
-      post :bulk_notify
     end
 
     member do

@@ -31,12 +31,6 @@ class ItemsController < ApplicationController
     redirect_to items_path, notice: 'Notification started!'
   end
 
-  def bulk_notify
-    return unless check_user('admin')
-    BulkNotifyWorker.perform_async
-    redirect_to items_path, notice: 'Bulk notification started!'
-  end
-
   def archive
     return unless check_user('admin')
     @items = Item.returned.order_by(created_at: :desc).all
