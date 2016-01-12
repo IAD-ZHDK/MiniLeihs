@@ -24,11 +24,12 @@ class ItemsController < ApplicationController
     redirect_to items_path, notice: 'Item successfully returned!'
   end
 
-  def notify
+  def request_return
     return unless check_user('admin')
     @item = Item.find(params[:id])
-    NotifyWorker.perform_async(@item.borrower_email)
-    redirect_to items_path, notice: 'Notification started!'
+    RequestMailer.request_email(@item).deliver_later!
+    @item.update!(last_return_request_at: Time.now)
+    redirect_to items_path, notice: 'Request sent!'
   end
 
   def archive

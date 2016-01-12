@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
     member do
       post :return
-      post :notify
+      post :request_return
     end
   end
 end

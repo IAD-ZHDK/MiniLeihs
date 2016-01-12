@@ -7,6 +7,7 @@ table
     th Time
     - if admin?
       th Last Notification
+      th Last Return Request
       th Actions
 
   - @items.each do |item|
@@ -16,6 +17,7 @@ table
       td = time_ago_in_words(item.created_at) + ' ago'
       - if admin?
         td = item.last_notification_at ? time_ago_in_words(item.last_notification_at) + ' ago' : ''
+        td = item.last_return_request_at ? time_ago_in_words(item.last_return_request_at) + ' ago' : ''
         td
           = link_to 'Return', return_item_path(item), method: :post
-          = link_to 'Notify Borrower', notify_item_path(item), method: :post
+          = link_to 'Request Return', request_return_item_path(item), method: :post
