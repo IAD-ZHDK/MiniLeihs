@@ -15,6 +15,7 @@ end
 
 gem 'jbuilder', '~> 2.0'
 gem 'mongoid', '~> 5.0.0'
+gem 'email_validator'
 
 gem 'sinatra', :require => nil
 gem 'sidekiq', '~> 4.0.0'
