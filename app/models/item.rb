@@ -11,7 +11,7 @@ class Item
   field :agreed_to_terms, type: Boolean
 
   validates_presence_of :description, :borrower_email, :agreed_to_terms
-  validates_acceptance_of :agreed_to_terms
+  validates_acceptance_of :agreed_to_terms, accept: true
   validates :borrower_email, email: { strict_mode: true }
 
   scope :borrowed, -> { where(returned_at: nil) }
