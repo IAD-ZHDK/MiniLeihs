@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
 
   def create
     return unless check_user('terminal', 'admin')
-    @item = Item.create(permitted_params[:item])
+    @item = Item.new(permitted_params[:item])
     if @item.save
       redirect_to items_path, notice: 'Successfully borrowed item!'
     else
