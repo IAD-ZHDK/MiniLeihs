@@ -38,5 +38,4 @@ end
 
 group :production do
   gem 'puma'
-  gem 'postmark-rails', '~> 0.10.0'
 end
