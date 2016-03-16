@@ -1,6 +1,6 @@
 # MiniLeihs
 
-**our homebrew material borrowing tracking system**
+**Our homebrew material borrowing tracking system.**
 
 ## Environment
 
