@@ -34,7 +34,7 @@ class ItemsController < ApplicationController
 
   def archive
     return unless check_user('admin')
-    @items = Item.returned.order_by(created_at: :desc).all
+    @items = Item.returned.order_by(returned_at: :desc).all
   end
 
   protected
