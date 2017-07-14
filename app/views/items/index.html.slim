@@ -20,4 +20,4 @@ table
         td = item.last_return_request_at ? time_ago_in_words(item.last_return_request_at) + ' ago' : ''
         td
           = link_to 'Return', return_item_path(item), method: :post
-          = link_to 'Request Return', request_return_item_path(item), method: :post
+          = link_to 'Request', request_return_item_path(item), method: :post
