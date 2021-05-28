@@ -20,6 +20,10 @@ NOTIFY_INTERVAL
 
 ## Installation MacOS
 
+How to deploy:
+
+[Dokku Application Deployment](https://dokku.com/docs/deployment/application-deployment/)
+
 
 Fixing v8 install issues on Big Sur:
 
