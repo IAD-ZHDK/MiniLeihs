@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 ruby '2.6.7'
 
-gem 'rails', '4.2.5'
+gem 'rails', '6.1.3.2'
 
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
+gem 'sass-rails'
+gem 'uglifier'
 gem 'therubyracer', platforms: :ruby
 
 gem 'jquery-rails'
@@ -13,12 +13,12 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-normalize-css'
 end
 
-gem 'jbuilder', '~> 2.0'
-gem 'mongoid', '~> 5.0.0'
+gem 'jbuilder'
+gem 'mongoid'
 gem 'email_validator'
 
 gem 'sinatra', :require => nil
-gem 'sidekiq', '~> 4.0.0'
+gem 'sidekiq'
 gem 'sidekiq-cron'
 
 gem 'slim'
@@ -30,7 +30,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'web-console', '~> 2.0'
+  gem 'web-console'
   gem 'spring'
   gem 'letter_opener'
 end
