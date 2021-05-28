@@ -17,3 +17,22 @@ PASSWORD_TERMINAL
 FIRST_NOTIFICATION
 NOTIFY_INTERVAL
 ```
+
+## Installation MacOS
+
+
+Fixing v8 install issues on Big Sur:
+
+```bash
+brew install v8 v8@3.15
+bundle config build.libv8 --with-system-v8
+bundle config build.therubyracer --with-v8-dir=/usr/local/opt/v8@3.15
+bundle update libv8 therubyracer
+```
+
+Compile App
+
+```bash
+bundle install
+rake assets:precompile
+```
