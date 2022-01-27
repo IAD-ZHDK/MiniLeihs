@@ -18,7 +18,7 @@ gem 'mongoid'
 gem 'email_validator'
 
 gem 'sinatra', :require => nil
-gem 'sidekiq', '~> 5.2.8' # compatible with redis 3
+gem 'sidekiq', '~> 6.4.0' # compatible with redis 3
 gem 'sidekiq-cron'
 
 gem 'slim'
